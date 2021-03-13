@@ -76,6 +76,8 @@ class AppBarWidget extends StatelessWidget {
                       child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Search',
+                          hintStyle:
+                              TextStyle(color: Theme.of(context).primaryColor),
                           border: InputBorder.none,
                         ),
                       ),

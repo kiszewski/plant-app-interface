@@ -1,10 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:plant_app_interface/models/plant_model.dart';
 
 import '../more_button_widget.dart';
 import '../section_title_text_widget.dart';
 import 'small_item_card_widget.dart';
 
 class RecomendedItemsWidget extends StatelessWidget {
+  final List<PlantModel> _plants = [
+    PlantModel(
+      name: 'SAMANTHA',
+      country: 'RUSSIA',
+      price: 400,
+      image: 'assets/images/image_1.png',
+    ),
+    PlantModel(
+      name: 'ANGELICA',
+      country: 'RUSSIA',
+      price: 540,
+      image: 'assets/images/image_2.png',
+    ),
+    PlantModel(
+      name: 'SAMANTHA',
+      country: 'RUSSIA',
+      price: 540,
+      image: 'assets/images/image_3.png',
+    ),
+  ];
   @override
   Widget build(BuildContext context) {
     final _width = MediaQuery.of(context).size.width;
@@ -27,29 +48,12 @@ class RecomendedItemsWidget extends StatelessWidget {
           Container(
             width: _width,
             height: _height * .4,
-            child: ListView(
+            child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              children: [
-                SmallItemCardWidget(
-                  country: 'RUSSIA',
-                  name: 'SAMANTHA',
-                  price: 400,
-                  image: 'assets/images/image_1.png',
-                ),
-                SmallItemCardWidget(
-                  country: 'RUSSIA',
-                  name: 'ANGELICA',
-                  price: 540,
-                  image: 'assets/images/image_2.png',
-                ),
-                SmallItemCardWidget(
-                  country: 'RUSSIA',
-                  name: 'SAMANTHA',
-                  price: 540,
-                  image: 'assets/images/image_3.png',
-                ),
-              ],
+              itemCount: _plants.length,
+              itemBuilder: (context, index) =>
+                  SmallItemCardWidget(plant: _plants[index]),
             ),
           )
         ],
