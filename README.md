@@ -6,4 +6,4 @@ This project is a challenge inspired by this original repository.
 
 ## Result
 ![App UI](/home.png)
-![App UI](/details.png)
+![App UI](/plant_details.png)
